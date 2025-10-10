@@ -1,0 +1,45 @@
+﻿@model SistemaVotacao.Controllers.VotoCreateViewModel
+
+@{
+    ViewData["Title"] = "Registrar Voto";
+}
+
+<h1>Registrar Novo Voto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="id_eleitor" class="control-label"></label>
+                <select asp-for="id_eleitor" class="form-control"
+                        asp-items="@(new SelectList(Model.Eleitores, "id_eleitor", "nome"))">
+                    <option value="">Selecione um eleitor</option>
+                </select>
+                <span asp-validation-for="id_eleitor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_candidato" class="control-label"></label>
+                <select asp-for="id_candidato" class="form-control"
+                        asp-items="@(new SelectList(Model.Candidatos, "id_candidato", "nome"))">
+                    <option value="">Selecione um candidato</option>
+                </select>
+                <span asp-validation-for="id_candidato" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Registrar Voto" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

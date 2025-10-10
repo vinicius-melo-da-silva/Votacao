@@ -1,0 +1,45 @@
+﻿@model SistemaVotacao.Models.Usuario
+@{
+    ViewData["Title"] = "Editar Usuário";
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+    <h2>Editar Usuário</h2>
+
+    <form asp-controller="Usuario" asp-action="Edit" asp-route-id="@Model.id" method="post">
+        <div class="mb-3">
+            <label asp-for="nome" class="form-label">Nome</label>
+            <input asp-for="nome" class="form-control" />
+            <span asp-validation-for="nome" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="titulo_eleitoral" class="form-label">Título Eleitoral</label>
+            <input asp-for="titulo_eleitoral" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="senha_hash" class="form-label">Senha (Deixe em branco para não alterar)</label>
+            <input asp-for="senha_hash" type="password" class="form-control" />
+            <span asp-validation-for="senha_hash" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="role" class="form-label">Função</label>
+            <select asp-for="role" class="form-select">
+                <option value="Eleitor" selected="@((Model.role == "Eleitor") ? "selected" : null)">Eleitor</option>
+                <option value="Administrador" selected="@((Model.role == "Administrador") ? "selected" : null)">Administrador</option>
+            </select>
+            <span asp-validation-for="role" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input asp-for="ativo" class="form-check-input" type="checkbox" />
+            <label asp-for="ativo" class="form-check-label">Ativo</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a asp-controller="Usuario" asp-action="List" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SistemaVotacao.Models.Eleitores>
+
+@{
+    ViewData["Title"] = "Eleitores";
+}
+
+<h1>Lista de Eleitores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo Eleitor</a>
+</p>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Título Eleitoral</th>
+            <th>Data de Criação</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.titulo_eleitoral)</td>
+                <td>@Html.DisplayFor(modelItem => item.criado_em)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_eleitor" class="btn btn-warning btn-sm">Editar</a>
+                    <form asp-action="Delete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@item.id_eleitor" />
+                        <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Tem certeza que deseja excluir este eleitor?')">
+                            Excluir
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

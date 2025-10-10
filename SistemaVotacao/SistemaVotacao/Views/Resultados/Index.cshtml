@@ -1,0 +1,138 @@
+﻿@model SistemaVotacao.Controllers.ResultadosViewModel
+
+@{
+    ViewData["Title"] = "Resultados da Eleição";
+}
+
+<h1>Resultados da Eleição</h1>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Total de Eleitores</h5>
+                <h2 class="card-text">@Model.TotalEleitores</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Total de Votos</h5>
+                <h2 class="card-text">@Model.TotalVotos</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Não Votaram</h5>
+                <h2 class="card-text">@Model.TotalNaoVotaram</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Participação</h5>
+                <h2 class="card-text">@Model.PercentualParticipacao.ToString("F2")%</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="mb-3">Ranking de Votação</h2>
+
+@if (Model.Resultados.Any())
+{
+    <div class="row">
+        @foreach (var resultado in Model.Resultados)
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                @if (!string.IsNullOrEmpty(resultado.foto))
+                                {
+                                    <img src="@resultado.foto" class="img-fluid rounded" alt="@resultado.nome" style="max-height: 100px;">
+                                }
+                                else
+                                {
+                                    <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 100px;">
+                                        <i class="fas fa-user fa-2x text-muted"></i>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-md-9">
+                                <h5 class="card-title">@resultado.nome</h5>
+                                <div class="progress mb-2" style="height: 25px;">
+                                    <div class="progress-bar @GetProgressBarColor(resultado.percentual)"
+                                         role="progressbar"
+                                         style="width: @resultado.percentual_formatado;"
+                                         aria-valuenow="@resultado.percentual"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100">
+                                        @resultado.percentual_formatado
+                                    </div>
+                                </div>
+                                <p class="card-text">
+                                    <strong>@resultado.total_votos</strong> voto(s) de um total de <strong>@resultado.total_geral</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Nenhum voto registrado</h4>
+        <p>Não há votos computados até o momento.</p>
+    </div>
+}
+
+<h2 class="mb-3 mt-5">Lista de Candidatos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Título Eleitoral</th>
+            <th>Data de Cadastro</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var candidato in Model.Candidatos)
+        {
+            <tr>
+                <td>@candidato.nome</td>
+                <td>@candidato.cpf</td>
+                <td>@candidato.titulo_eleitoral</td>
+                <td>@candidato.criado_em.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@functions {
+    private string GetProgressBarColor(double percentual)
+    {
+        if (percentual >= 50) return "bg-success";
+        if (percentual >= 30) return "bg-info";
+        if (percentual >= 10) return "bg-warning";
+        return "bg-danger";
+    }
+}
+
+@section Scripts {
+    <script>        
+        setTimeout(function() {
+            window.location.reload();
+        }, 30000);
+    </script>
+}
