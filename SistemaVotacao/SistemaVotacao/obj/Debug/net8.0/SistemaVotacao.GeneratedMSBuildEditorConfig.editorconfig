@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Auth/AcessoNegado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxBY2Vzc29OZWdhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Candidatos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuZGlkYXRvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Eleitores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWxlaXRvcmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Resultados/Index.cshtml]
@@ -70,6 +78,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Votos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90b3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Votos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90b3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/3bmod/Desktop/Votacao/SistemaVotacao/SistemaVotacao/Views/Votos/Index.cshtml]

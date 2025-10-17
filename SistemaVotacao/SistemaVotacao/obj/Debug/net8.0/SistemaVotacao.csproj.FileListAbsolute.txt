@@ -56,3 +56,5 @@ C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\obj\Debug\net8.0\re
 C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\obj\Debug\net8.0\SistemaVotacao.pdb
 C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\obj\Debug\net8.0\SistemaVotacao.genruntimeconfig.cache
 C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\obj\Debug\net8.0\ref\SistemaVotacao.dll
+C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\obj\Debug\net8.0\SistemaVotacao.sourcelink.json
+C:\Users\3bmod\Desktop\Votacao\SistemaVotacao\SistemaVotacao\bin\Debug\net8.0\BCrypt.Net-Next.dll

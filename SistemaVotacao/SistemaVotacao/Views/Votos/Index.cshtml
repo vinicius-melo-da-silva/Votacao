@@ -1,27 +1,15 @@
-﻿@model IEnumerable<SistemaVotacao.Controllers.VotoViewModel>
+﻿@model List<SistemaVotacao.Controllers.VotoViewModel>
+@using SistemaVotacao.Autenticação
 
 @{
-    ViewData["Title"] = "Registro de Votos";
+    var role = Context.Session.GetString(SessionKeys.UserRole);
 }
 
-<h1>Registro de Votos</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Registrar Novo Voto</a>
-</p>
+<h2>Votos</h2>
 
 @if (TempData["ErrorMessage"] != null)
 {
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
 
 <table class="table table-striped">
@@ -30,28 +18,38 @@
             <th>Eleitor</th>
             <th>Candidato</th>
             <th>Data do Voto</th>
-            <th>Registrado em</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var voto in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => item.nome_eleitor)</td>
-                <td>@Html.DisplayFor(modelItem => item.nome_candidato)</td>
-                <td>@Html.DisplayFor(modelItem => item.data_voto)</td>
-                <td>@Html.DisplayFor(modelItem => item.criado_em)</td>
+                <td>@voto.nome_eleitor</td>
+                <td>@voto.nome_candidato</td>
+                <td>@voto.data_voto.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>
-                    <form asp-action="Delete" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@item.id_voto" />
-                        <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Tem certeza que deseja excluir este voto?')">
-                            Excluir
-                        </button>
-                    </form>
+                    @* Botão Edit: Adm, Gerente sempre; Comum só se for seu voto *@
+                    @if (role == "Adm" || role == "Gerente" || (role == "Comum" && voto.id_eleitor == Context.Session.GetInt32(SessionKeys.UserId)))
+                    {
+                        <a asp-action="Edit" asp-route-id="@voto.id_voto" class="btn btn-sm btn-primary">Editar</a>
+                    }
+
+                    @* Botão Delete: só para Adm *@
+                    @if (role == "Adm")
+                    {
+                        <form asp-action="Delete" asp-route-id="@voto.id_voto" method="post" style="display:inline">
+                            <input type="hidden" name="__RequestVerificationToken" value="@Antiforgery.GetTokens(HttpContext).RequestToken" />
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir este voto?')">Excluir</button>
+                        </form>
+                    }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@if (role == "Comum")
+{
+    <a asp-action="Create" class="btn btn-success">Votar</a>
+}

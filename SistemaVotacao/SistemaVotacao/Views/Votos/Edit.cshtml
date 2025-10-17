@@ -1,17 +1,17 @@
 ﻿@model SistemaVotacao.Controllers.VotoCreateViewModel
 
-<h2>Registrar Voto</h2>
+<h2>Editar Voto</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Edit" method="post">
     <div class="form-group">
         <label asp-for="id_candidato"></label>
-        <select asp-for="id_candidato" asp-items="@(new SelectList(Model.Candidatos, "id_candidato", "nome"))" class="form-control">
+        <select asp-for="id_candidato" asp-items="@(new SelectList(Model.Candidatos, "id_candidato", "nome", Model.id_candidato))" class="form-control">
             <option value="">-- Selecione --</option>
         </select>
         <span asp-validation-for="id_candidato" class="text-danger"></span>
     </div>
     <br />
-    <button type="submit" class="btn btn-primary">Votar</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
     <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
 

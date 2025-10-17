@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using SistemaVotacao.Models;
-using System;
-using System.Collections.Generic;
+using BCrypt.Net;
+using Biblioteca.Filters;
 
 namespace SistemaVotacao.Controllers
 {
+    [SessionAuthorize(RoleAnyOf = "Adm,Gerente")]
+
     [Route("usuario")]
     public class UsuarioController : Controller
     {
@@ -17,10 +18,10 @@ namespace SistemaVotacao.Controllers
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-        [HttpGet("List")]
+        [HttpGet("list")]
         public IActionResult List(int? id = null, bool ativosApenas = false)
         {
-            List<Usuario> usuarios = new List<Usuario>();
+            var usuarios = new List<Usuario>();
 
             using (var conexao = new MySqlConnection(_connectionString))
             {
@@ -51,18 +52,20 @@ namespace SistemaVotacao.Controllers
             return View(usuarios);
         }
 
-        [HttpGet("Creat")]
+        [HttpGet("create")]
         public IActionResult Creat()
         {
             return View();
         }
 
-        [HttpPost("Creat")]
+        [HttpPost("creat")]
         [ValidateAntiForgeryToken]
         public IActionResult Creat(Usuario usuario)
         {
             if (!ModelState.IsValid)
                 return View(usuario);
+
+            string senhaHash = BCrypt.Net.BCrypt.HashPassword(usuario.senha_hash);
 
             using (var conexao = new MySqlConnection(_connectionString))
             {
@@ -71,7 +74,7 @@ namespace SistemaVotacao.Controllers
                 {
                     comando.Parameters.AddWithValue("@p_nome", usuario.nome);
                     comando.Parameters.AddWithValue("@p_titulo_eleitoral", usuario.titulo_eleitoral);
-                    comando.Parameters.AddWithValue("@p_senha_hash", usuario.senha_hash);
+                    comando.Parameters.AddWithValue("@p_senha_hash", senhaHash);
                     comando.Parameters.AddWithValue("@p_role", usuario.role);
                     comando.ExecuteNonQuery();
                 }
@@ -81,7 +84,7 @@ namespace SistemaVotacao.Controllers
             return RedirectToAction("List");
         }
 
-        [HttpGet("Edit/{id}")]
+        [HttpGet("edit/{id}")]
         public IActionResult Edit(int id)
         {
             Usuario usuario = null;
@@ -116,12 +119,31 @@ namespace SistemaVotacao.Controllers
             return View(usuario);
         }
 
-        [HttpPost("Edit/{id}")]
+        [HttpPost("edit/{id}")]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Usuario usuario)
         {
             if (!ModelState.IsValid)
                 return View(usuario);
+
+            string senhaHash;
+
+            if (!string.IsNullOrWhiteSpace(usuario.senha_hash))
+            {
+                senhaHash = BCrypt.Net.BCrypt.HashPassword(usuario.senha_hash);
+            }
+            else
+            {
+                using (var conexao = new MySqlConnection(_connectionString))
+                {
+                    conexao.Open();
+                    using (var comando = new MySqlCommand("SELECT senha_hash FROM usuarios WHERE id = @p_id", conexao))
+                    {
+                        comando.Parameters.AddWithValue("@p_id", id);
+                        senhaHash = comando.ExecuteScalar()?.ToString();
+                    }
+                }
+            }
 
             using (var conexao = new MySqlConnection(_connectionString))
             {
@@ -130,7 +152,7 @@ namespace SistemaVotacao.Controllers
                 {
                     comando.Parameters.AddWithValue("@p_id", id);
                     comando.Parameters.AddWithValue("@p_nome", usuario.nome);
-                    comando.Parameters.AddWithValue("@p_senha_hash", usuario.senha_hash);
+                    comando.Parameters.AddWithValue("@p_senha_hash", senhaHash);
                     comando.Parameters.AddWithValue("@p_role", usuario.role);
                     comando.Parameters.AddWithValue("@p_ativo", usuario.ativo);
                     comando.ExecuteNonQuery();
@@ -140,7 +162,6 @@ namespace SistemaVotacao.Controllers
             TempData["Mensagem"] = "Usuário atualizado com sucesso!";
             return RedirectToAction("List");
         }
-
 
         [HttpPost("excluir/{id}")]
         [ValidateAntiForgeryToken]

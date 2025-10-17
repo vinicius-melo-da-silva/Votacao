@@ -1,12 +1,105 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|c:\\users\\3bmod\\desktop\\votacao\\sistemavotacao\\sistemavotacao\\controllers\\votoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|solutionrelative:sistemavotacao\\controllers\\votoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|c:\\users\\3bmod\\desktop\\votacao\\sistemavotacao\\sistemavotacao\\models\\votos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|solutionrelative:sistemavotacao\\models\\votos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|c:\\users\\3bmod\\desktop\\votacao\\sistemavotacao\\sistemavotacao\\views\\votos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|solutionrelative:sistemavotacao\\views\\votos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|c:\\users\\3bmod\\desktop\\votacao\\sistemavotacao\\sistemavotacao\\views\\votos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|solutionrelative:sistemavotacao\\views\\votos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|c:\\users\\3bmod\\desktop\\votacao\\sistemavotacao\\sistemavotacao\\views\\votos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDED2F8C-6C50-4255-A675-4B244C3538B0}|SistemaVotacao\\SistemaVotacao.csproj|solutionrelative:sistemavotacao\\views\\votos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Votos.cs",
+              "DocumentMoniker": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Models\\Votos.cs",
+              "RelativeDocumentMoniker": "SistemaVotacao\\Models\\Votos.cs",
+              "ToolTip": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Models\\Votos.cs",
+              "RelativeToolTip": "SistemaVotacao\\Models\\Votos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:32:05.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Edit.cshtml",
+              "RelativeDocumentMoniker": "SistemaVotacao\\Views\\Votos\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Edit.cshtml",
+              "RelativeToolTip": "SistemaVotacao\\Views\\Votos\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T00:30:55.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Create.cshtml",
+              "RelativeDocumentMoniker": "SistemaVotacao\\Views\\Votos\\Create.cshtml",
+              "ToolTip": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Create.cshtml",
+              "RelativeToolTip": "SistemaVotacao\\Views\\Votos\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T00:30:20.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Index.cshtml",
+              "RelativeDocumentMoniker": "SistemaVotacao\\Views\\Votos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Views\\Votos\\Index.cshtml",
+              "RelativeToolTip": "SistemaVotacao\\Views\\Votos\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T00:30:17.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VotosController.cs",
+              "DocumentMoniker": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Controllers\\VotosController.cs",
+              "RelativeDocumentMoniker": "SistemaVotacao\\Controllers\\VotosController.cs",
+              "ToolTip": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\Controllers\\VotosController.cs",
+              "RelativeToolTip": "SistemaVotacao\\Controllers\\VotosController.cs",
+              "ViewState": "AgIAAMUAAAAAAAAAAAAAAFAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:17:51.303Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -7,9 +7,11 @@ using MySql.Data.MySqlClient;
 using System.Linq;
 using SistemaVotacao.Models;
 using System;
+using Biblioteca.Filters;
 
 namespace SistemaVotacao.Controllers
 {
+    [SessionAuthorize] // 🔒 Garante que o usuário esteja logado
     public class EleitoresController : Controller
     {
         private readonly string _connectionString;
@@ -20,6 +22,8 @@ namespace SistemaVotacao.Controllers
         }
 
         // GET: Eleitores
+        // Todos os usuários logados podem visualizar (Comum, Gerente, Adm)
+        [SessionAuthorize(RoleAnyOf = "Adm,Gerente,Comum")]
         public IActionResult Index()
         {
             using (IDbConnection db = new MySqlConnection(_connectionString))
@@ -32,6 +36,8 @@ namespace SistemaVotacao.Controllers
         }
 
         // GET: Eleitores/Create
+        // Apenas Adm pode criar novos eleitores
+        [SessionAuthorize(RoleAnyOf = "Adm")]
         public IActionResult Create()
         {
             return View();
@@ -40,6 +46,7 @@ namespace SistemaVotacao.Controllers
         // POST: Eleitores/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [SessionAuthorize(RoleAnyOf = "Adm")]
         public IActionResult Create(Eleitores eleitor)
         {
             if (ModelState.IsValid)
@@ -66,6 +73,8 @@ namespace SistemaVotacao.Controllers
         }
 
         // GET: Eleitores/Edit/5
+        // Adm e Gerente podem editar
+        [SessionAuthorize(RoleAnyOf = "Adm,Gerente")]
         public IActionResult Edit(int id)
         {
             using (IDbConnection db = new MySqlConnection(_connectionString))
@@ -85,6 +94,7 @@ namespace SistemaVotacao.Controllers
         // POST: Eleitores/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [SessionAuthorize(RoleAnyOf = "Adm,Gerente")]
         public IActionResult Edit(int id, Eleitores eleitor)
         {
             if (id != eleitor.id_eleitor)
@@ -117,8 +127,10 @@ namespace SistemaVotacao.Controllers
         }
 
         // POST: Eleitores/Delete/5
+        // Apenas Adm pode excluir
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [SessionAuthorize(RoleAnyOf = "Adm")]
         public IActionResult Delete(int id)
         {
             try

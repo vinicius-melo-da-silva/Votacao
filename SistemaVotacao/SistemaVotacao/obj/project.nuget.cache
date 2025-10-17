@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7iF+k5Rgcb4=",
+  "dgSpecHash": "y3sR2i8vMP0=",
   "success": true,
   "projectFilePath": "C:\\Users\\3bmod\\Desktop\\Votacao\\SistemaVotacao\\SistemaVotacao\\SistemaVotacao.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\3bmod\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\3bmod\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\3bmod\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\3bmod\\.nuget\\packages\\google.protobuf\\3.30.0\\google.protobuf.3.30.0.nupkg.sha512",

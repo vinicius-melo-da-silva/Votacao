@@ -11,4 +11,12 @@ namespace SistemaVotacao.Models
         public DateTime criado_em { get; set; }
     }
 
+    public class VotoViewModel
+    {
+        public int IdCandidato { get; set; }
+        public string NomeCandidato { get; set; }
+        public int IdEleitor { get; set; }
+        // outros campos necessários
+    }
+
 }

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Acesso Negado";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-danger">🚫 Acesso Negado</h1>
+    <p class="lead mt-3">Você não tem permissão para acessar esta página.</p>
+    <hr />
+    <p>Se você acha que isso é um erro, entre em contato com o administrador do sistema.</p>
+
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary mt-3">
+        Voltar para a Página Inicial
+    </a>
+
+    <a asp-controller="Auth" asp-action="Login" class="btn btn-outline-secondary mt-3">
+        Fazer Login
+    </a>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 600px;
+    }
+</style>
